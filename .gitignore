@@ -36,3 +36,4 @@ versions-upgrade-plan.yaml
 
 # ike:* goal reports
 ike꞉*.md
+/ike-example-its/
