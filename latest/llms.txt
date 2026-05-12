@@ -10,10 +10,10 @@
 ## Documentation
 
 - [IKE Example Integration Test Suite](https://ike.network/ike-example-its/index.html.md)
+- [Dependencies (SBOM)](https://ike.network/ike-example-its/dependencies.html.md)
 
 ## Other
 
-- [Dependencies (SBOM)](https://ike.network/ike-example-its/dependencies.html.md)
 - [Licenses (SPDX)](https://ike.network/ike-example-its/licenses.html.md)
 - [Built With](https://ike.network/ike-example-its/built-with.html.md)
 
