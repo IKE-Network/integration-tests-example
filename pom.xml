@@ -61,6 +61,19 @@
         <url>https://ike.network</url>
     </organization>
 
+    <distributionManagement>
+        <!-- Explicit <site> URL — declares the gh-pages publish location
+             so site:stage relative-path computation matches reality.
+             Previously inherited from ike-parent (whose URL template
+             was tuned for external consumers); ike-issues#380 realigned
+             ike-parent's template to in-reactor location, so external
+             consumers like this one must now declare their own. -->
+        <site>
+            <id>ike-site</id>
+            <url>https://ike.network/${project.artifactId}/</url>
+        </site>
+    </distributionManagement>
+
     <scm>
         <connection>scm:git:https://github.com/IKE-Network/ike-example-its.git</connection>
         <developerConnection>scm:git:https://github.com/IKE-Network/ike-example-its.git</developerConnection>
