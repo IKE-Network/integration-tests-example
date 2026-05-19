@@ -18,7 +18,7 @@ mvn verify
 
 # Pluggable — as an optional subproject of ike-example-ws:
 cd ike-example-ws
-mvn ws:init                  # clones doc-example, example-project, its
+mvn ws:scaffold-init         # clones doc-example, example-project, its
 mvn verify -pl its           # run the IT suite as a workspace module
 ```
 
@@ -46,7 +46,7 @@ The cases below are listed in this repo’s `README.adoc` as the intended covera
 | `src/it/doc-only/` | Minimal `<packaging>pom</packaging>` project with `src/docs/asciidoc/`. The doc-pipeline profile in `ike-parent` auto-activates on `src/docs/asciidoc/` existence; the `maven-assembly-plugin` execution attaches a `<classifier>adoc</classifier><type>zip</type>` artifact. | Doc pipeline regressions: profile activation, assembly descriptor paths, classifier name (post-#321 the canonical classifier is `adoc`, not the retired `ike-doc` packaging). |
 | `src/it/java-plus-docs/` | `<packaging>jar</packaging>` consumer with both `src/main/java/` and `src/docs/asciidoc/`. A single `mvn verify` produces the JAR plus the `adoc`-classifier zip plus the rendered HTML/PDF outputs. | Multi-output projects: doc pipeline shouldn’t disable the default jar lifecycle, classifier collisions shouldn’t occur. |
 | `src/it/bom-import/` | Consumer that imports `network.ike.platform:ike-bom` via `<scope>import</scope>` but does NOT inherit `ike-parent`. The BOM’s managed dependency versions flatten correctly at consumer build time. | Maven 4 consumer-POM constraint: BOM imports must produce a fully-resolved consumer POM at install time, with no unresolved property references reaching downstream consumers. |
-| `src/it/workspace-create/` | Invokes `ws:create` from a scratch directory and asserts the generated workspace pom + workspace.yaml reference `network.ike.platform:ike-parent` at the released version (not legacy `local.aggregate` placeholder per #183). | `ws:create` template regressions; placeholder-vs-real-coordinates drift; ike-parent version pinning. |
+| `src/it/workspace-create/` | Invokes `ws:scaffold-init` from a scratch directory and asserts the generated workspace pom + workspace.yaml reference `network.ike.platform:ike-parent` at the released version (not legacy `local.aggregate` placeholder per #183). | `ws:scaffold-init` template regressions; placeholder-vs-real-coordinates drift; ike-parent version pinning. |
 
 Additional cases worth adding as the cascade matures (not yet in the README’s plan):
 
@@ -70,7 +70,7 @@ mvn verify -U
 mvn invoker:run -Dinvoker.test=doc-only
 
 # Or as a workspace module (requires the harness cloned into
-# ike-example-ws/its/ — `mvn ws:init` does that automatically):
+# ike-example-ws/its/ — `mvn ws:scaffold-init` does that automatically):
 cd ../ike-example-ws
 mvn verify -pl its
 ```
@@ -83,13 +83,17 @@ The bar for new cases is low: add one whenever you fix a bug that "should have b
 
 - The empty-staging gh-pages publish bug (#334) — would have been caught by an IT that asserts a single-module project’s `target/staging/` is correctly handled by the publish path.
 - The classifier filename mismatch in the v148 supplement delivery — would have been caught by an `src/it/built-with-classifier/` case.
-- The version-nested staging recursion (#337) — would have been caught by a `release-cascade` IT exercising `22` substitution in `site.deploy.url`.
+- The version-nested staging recursion (#337) — would have been caught by a `release-cascade` IT exercising `23-SNAPSHOT` substitution in `site.deploy.url`.
 - The parent-artifactId staging nesting (#342, surfaced during the v150 workspace release) — would have been caught by a `release-cascade` IT that verifies the published gh-pages tree has its content at the expected URL, not at `<parentArtifactId>/<artifactId>/`.
 
 Each "we hit this in the cascade and had to release another fix" moment is exactly the kind of thing this suite exists to catch preemptively. File a bug + add a regression IT, in that order.
 
+## [#not-published-to-maven-central](#not-published-to-maven-central)Not published to Maven Central
+
+`ike-example-its` is an executable test harness, not a library. It is deliberately **not** published to Maven Central — nothing depends on it; it depends on, and exercises, everything else. The IKE foundation (`ike-base-parent`, `ike-tooling`, `ike-docs`, `ike-platform`) is the part published to Central; see [the IKE Network landing page](https://ike.network/)[4] for the foundation/examples split.
+
 ## [#see-also](#see-also)See also
 
-- [ike-example-ws](https://ike.network/ike-example-ws/)[4] — the workspace this harness slots into as an optional reactor module.
-- [workspace.yaml — Annotated Tour](https://ike.network/ike-example-ws/workspace-yaml.html)[5] — the manifest format that the IT suite assumes the workspace exercises.
-- [maven-invoker-plugin](https://maven.apache.org/plugins/maven-invoker-plugin/)[6] — upstream documentation for the harness.
+- [ike-example-ws](https://ike.network/ike-example-ws/)[5] — the workspace this harness slots into as an optional reactor module.
+- [workspace.yaml — Annotated Tour](https://ike.network/ike-example-ws/workspace-yaml.html)[6] — the manifest format that the IT suite assumes the workspace exercises.
+- [maven-invoker-plugin](https://maven.apache.org/plugins/maven-invoker-plugin/)[7] — upstream documentation for the harness.

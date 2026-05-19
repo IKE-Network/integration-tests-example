@@ -1,7 +1,7 @@
 {
   "bomFormat" : "CycloneDX",
   "specVersion" : "1.6",
-  "serialNumber" : "urn:uuid:75550ac8-676f-3e35-b97e-7494d5faebea",
+  "serialNumber" : "urn:uuid:38a1af11-dba9-3f9a-9f23-ec1634497b62",
   "version" : 1,
   "metadata" : {
     "lifecycles" : [
@@ -57,11 +57,11 @@
     },
     "component" : {
       "type" : "library",
-      "bom-ref" : "pkg:maven/network.ike.examples/ike-example-its@22?type=pom",
+      "bom-ref" : "pkg:maven/network.ike.examples/ike-example-its@23-SNAPSHOT?type=pom",
       "publisher" : "IKE Network",
       "group" : "network.ike.examples",
       "name" : "ike-example-its",
-      "version" : "22",
+      "version" : "23-SNAPSHOT",
       "description" : "End-to-end smoke tests that exercise the IKE Network release cascade as external consumers would. Each IT case clones the intended usage pattern (doc-only project, java + docs, BOM import, ws:create scaffold) in a fresh Maven environment and asserts that the build succeeds and produces the expected artifacts.",
       "licenses" : [
         {
@@ -70,7 +70,7 @@
           }
         }
       ],
-      "purl" : "pkg:maven/network.ike.examples/ike-example-its@22?type=pom",
+      "purl" : "pkg:maven/network.ike.examples/ike-example-its@23-SNAPSHOT?type=pom",
       "externalReferences" : [
         {
           "type" : "website",
@@ -435,7 +435,7 @@
   ],
   "dependencies" : [
     {
-      "ref" : "pkg:maven/network.ike.examples/ike-example-its@22?type=pom",
+      "ref" : "pkg:maven/network.ike.examples/ike-example-its@23-SNAPSHOT?type=pom",
       "dependsOn" : [
         "pkg:maven/network.ike.tooling/ike-build-standards@185?classifier=claude&type=zip",
         "pkg:maven/network.ike.tooling/ike-build-standards@185?classifier=config&type=zip",
