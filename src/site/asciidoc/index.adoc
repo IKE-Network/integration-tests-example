@@ -22,7 +22,7 @@ mvn verify
 
 # Pluggable — as an optional subproject of ike-example-ws:
 cd ike-example-ws
-mvn ws:init                  # clones doc-example, example-project, its
+mvn ws:scaffold-init         # clones doc-example, example-project, its
 mvn verify -pl its           # run the IT suite as a workspace module
 ----
 
@@ -103,11 +103,11 @@ test are present in the local repository.
   property references reaching downstream consumers.
 
 | `src/it/workspace-create/`
-| Invokes `ws:create` from a scratch directory and asserts the
+| Invokes `ws:scaffold-init` from a scratch directory and asserts the
   generated workspace pom + workspace.yaml reference
   `network.ike.platform:ike-parent` at the released version (not
   legacy `local.aggregate` placeholder per #183).
-| `ws:create` template regressions; placeholder-vs-real-coordinates
+| `ws:scaffold-init` template regressions; placeholder-vs-real-coordinates
   drift; ike-parent version pinning.
 |===
 
@@ -159,7 +159,7 @@ mvn verify -U
 mvn invoker:run -Dinvoker.test=doc-only
 
 # Or as a workspace module (requires the harness cloned into
-# ike-example-ws/its/ — `mvn ws:init` does that automatically):
+# ike-example-ws/its/ — `mvn ws:scaffold-init` does that automatically):
 cd ../ike-example-ws
 mvn verify -pl its
 ----
@@ -193,6 +193,16 @@ from recent cascades:
 Each "we hit this in the cascade and had to release another fix"
 moment is exactly the kind of thing this suite exists to catch
 preemptively. File a bug + add a regression IT, in that order.
+
+== Not published to Maven Central
+
+`ike-example-its` is an executable test harness, not a library. It
+is deliberately *not* published to Maven Central — nothing depends
+on it; it depends on, and exercises, everything else. The IKE
+foundation (`ike-base-parent`, `ike-tooling`, `ike-docs`,
+`ike-platform`) is the part published to Central; see
+https://ike.network/[the IKE Network landing page] for the
+foundation/examples split.
 
 == See also
 
