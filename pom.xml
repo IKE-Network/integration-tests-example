@@ -74,6 +74,17 @@
         </site>
     </distributionManagement>
 
+    <properties>
+        <!-- This is a worked example (IT harness), not a library.
+             Override the Tier 0 default so ike:release-publish ships
+             internally only (tag + Nexus + GitHub Release + gh-pages
+             site) without publishing to Maven Central. Documented in
+             ike-network-site index.adoc § Examples. Static literal
+             only — Maven 4's consumer-POM flattener bakes property
+             values into released artifacts. -->
+        <ike.publishToCentral>false</ike.publishToCentral>
+    </properties>
+
     <scm>
         <connection>scm:git:https://github.com/IKE-Network/ike-example-its.git</connection>
         <developerConnection>scm:git:https://github.com/IKE-Network/ike-example-its.git</developerConnection>
