@@ -1,8 +1,14 @@
-# ike-example-its
+# integration-tests-example
 
 Integration test harness for the IKE Network release cascade. Pluggable
-into `ike-example-ws` as an optional subproject (#343), but also runnable
-standalone.
+into `workspace-example` as an optional subproject (#343), but also
+runnable standalone.
+
+Formerly named `ike-example-its` (with subproject key `its` in the
+workspace manifest); renamed under the canonical naming policy in
+IKE-Network/ike-issues#467 so the artifact ID, git repo name, on-disk
+directory, and workspace.yaml subproject key all match the spelled-out
+role.
 
 ## First Steps
 

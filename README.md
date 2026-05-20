@@ -1,8 +1,16 @@
-# IKE Example Workspace — Integration Test Harness
+# integration-tests-example — IKE Release-Cascade IT Harness
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
-[![Documentation](https://img.shields.io/badge/docs-ike.network%2Fike--example--its-blue)](https://ike.network/ike-example-its/)
+[![Documentation](https://img.shields.io/badge/docs-ike.network%2Fintegration--tests--example-blue)](https://ike.network/integration-tests-example/)
 [![IKE Network](https://img.shields.io/badge/IKE-Network-green)](https://ike.network/)
+
+> **Note (2026-05-20):** This project was previously named
+> `ike-example-its` and slotted into the workspace under the
+> 3-letter key `its`. It was renamed to `integration-tests-example`
+> under the canonical naming policy in IKE-Network/ike-issues#467
+> so the artifact ID, git repo name, on-disk directory, and
+> workspace.yaml subproject key all match the spelled-out role.
+> GitHub redirects keep old clone URLs working.
 
 End-to-end smoke tests that verify the IKE Network release cascade
 works from the perspective of an external consumer. Each IT is a
@@ -13,34 +21,33 @@ from Nexus (or from the local repository if already installed).
 
 ## Layout
 
-This is its own repository (split from
-[`IKE-Network/ike-example-ws`](https://github.com/IKE-Network/ike-example-ws)
+This is its own repository (split from `workspace-example`
 in [`IKE-Network/ike-issues#343`](https://github.com/IKE-Network/ike-issues/issues/343)
 so the IT harness can evolve on its own cadence and so a broken IT
 POM never blocks the workspace release cascade).
 
-It plugs into `ike-example-ws` as an **optional** subproject:
+It plugs into `workspace-example` as an **optional** subproject:
 
 ```bash
-# Standalone (the repo clones as ike-example-its by default):
-git clone https://github.com/IKE-Network/ike-example-its.git
-cd ike-example-its
+# Standalone:
+git clone https://github.com/IKE-Network/integration-tests-example.git
+cd integration-tests-example
 mvn verify
 
-# As an ike-example-ws subproject (cloned into ./its/, where the
-# workspace's file-activated `with-its` profile picks it up):
-cd ike-example-ws
+# As a workspace-example subproject (cloned into
+# ./integration-tests-example/, where the workspace's file-activated
+# profile picks it up):
+cd workspace-example
 mvn ws:scaffold-init                               # or:
-git clone https://github.com/IKE-Network/ike-example-its.git its
-mvn verify -pl its
+git clone https://github.com/IKE-Network/integration-tests-example.git
+mvn verify -pl integration-tests-example
 ```
 
-When `its/` is present inside `ike-example-ws`, the workspace
-reactor walks it during full builds. When it's absent, the
-workspace reactor skips it cleanly. The repo's local directory
-name `its` (not `ike-example-its`) preserves operator muscle
-memory from the pre-#343 layout when the harness lived inside
-`ike-example-ws`.
+When the subproject directory is present inside `workspace-example`,
+the workspace reactor walks it during full builds. When it's absent,
+the workspace reactor skips it cleanly. The directory name matches
+the artifact, the repo, and the workspace.yaml subproject key —
+one name everywhere (IKE-Network/ike-issues#467).
 
 ## What each IT must assert
 
@@ -131,15 +138,15 @@ See the
 
 ## Links
 
-- **Documentation:** [`https://ike.network/ike-example-its/`](https://ike.network/ike-example-its/)
-- **Workspace:** [`IKE-Network/ike-example-ws`](https://ike.network/ike-example-ws/) — pluggable harness for the workspace's release cascade
+- **Documentation:** [`https://ike.network/integration-tests-example/`](https://ike.network/integration-tests-example/)
+- **Workspace:** [`IKE-Network/workspace-example`](https://ike.network/workspace-example/) — pluggable harness for the workspace's release cascade
 - **Foundation sites:**
   [`ike-tooling`](https://ike.network/ike-tooling/) ·
   [`ike-docs`](https://ike.network/ike-docs/) ·
   [`ike-platform`](https://ike.network/ike-platform/)
 - **Build standards:** [`ike-build-standards`](https://ike.network/ike-tooling/ike-build-standards/)
 - **Issues:** [`IKE-Network/ike-issues`](https://github.com/IKE-Network/ike-issues) (cross-project tracker)
-- **Source:** [`IKE-Network/ike-example-its`](https://github.com/IKE-Network/ike-example-its)
+- **Source:** [`IKE-Network/integration-tests-example`](https://github.com/IKE-Network/integration-tests-example)
 
 ## License
 

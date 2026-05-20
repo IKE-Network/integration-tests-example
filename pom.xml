@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  IKE Example Workspace — Integration Test Harness
-  ════════════════════════════════════════════════
+  integration-tests-example — IKE Release-Cascade IT Harness
+  ══════════════════════════════════════════════════════════
 
   End-to-end smoke tests for the IKE Network release cascade. Each
   IT case is a small POM project under src/it/ that is executed by
@@ -9,10 +9,11 @@
   actual Nexus-resolved artifacts of ike-tooling, ike-docs, and
   ike-platform the way an external consumer would.
 
-  Pluggable into ike-example-ws as an optional subproject (see
-  ike-issues#343): clone this repo into ike-example-ws/its/ to have
-  the workspace's reactor pick it up via a file-activated profile,
-  or omit it for a leaner workspace build.
+  Pluggable into workspace-example as an optional subproject (see
+  ike-issues#343): clone this repo into
+  workspace-example/integration-tests-example/ to have the
+  workspace's reactor pick it up via a file-activated profile, or
+  omit it for a leaner workspace build.
 
   Run:
     mvn verify                       # all IT cases
@@ -32,11 +33,11 @@
     </parent>
 
     <groupId>network.ike.examples</groupId>
-    <artifactId>ike-example-its</artifactId>
+    <artifactId>integration-tests-example</artifactId>
     <version>24-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>IKE Example Integration Test Harness</name>
+    <name>IKE Integration Tests Example</name>
     <description>
         End-to-end smoke tests that exercise the IKE Network release
         cascade as external consumers would. Each IT case clones the
@@ -45,7 +46,7 @@
         asserts that the build succeeds and produces the expected
         artifacts.
     </description>
-    <url>https://ike.network/ike-example-its/</url>
+    <url>https://ike.network/integration-tests-example/</url>
     <inceptionYear>2026</inceptionYear>
 
     <licenses>
@@ -86,9 +87,9 @@
     </properties>
 
     <scm>
-        <connection>scm:git:https://github.com/IKE-Network/ike-example-its.git</connection>
-        <developerConnection>scm:git:https://github.com/IKE-Network/ike-example-its.git</developerConnection>
-        <url>https://github.com/IKE-Network/ike-example-its</url>
+        <connection>scm:git:https://github.com/IKE-Network/integration-tests-example.git</connection>
+        <developerConnection>scm:git:https://github.com/IKE-Network/integration-tests-example.git</developerConnection>
+        <url>https://github.com/IKE-Network/integration-tests-example</url>
     </scm>
 
     <build>
