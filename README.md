@@ -30,7 +30,7 @@ mvn verify
 # As an ike-example-ws subproject (cloned into ./its/, where the
 # workspace's file-activated `with-its` profile picks it up):
 cd ike-example-ws
-mvn ws:init                                        # or:
+mvn ws:scaffold-init                               # or:
 git clone https://github.com/IKE-Network/ike-example-its.git its
 mvn verify -pl its
 ```
@@ -73,7 +73,7 @@ authored backlog and "would-have-been-caught" lists.
 | `src/it/doc-only/` | Minimal `<packaging>pom</packaging>` project with `src/docs/asciidoc/`. Asserts that `mvn verify` renders HTML and attaches the `adoc` source classifier without additional plugin config. |
 | `src/it/java-plus-docs/` | `<packaging>jar</packaging>` project with `src/main/java/` and `src/docs/asciidoc/`. Asserts that both JAR and HTML are produced in a single `mvn verify`. |
 | `src/it/bom-import/` | Consumer that imports `network.ike.platform:ike-bom` via `<scope>import</scope>` but does not inherit `ike-parent`. Asserts the BOM's managed dependency versions flatten correctly at consumer build time. |
-| `src/it/workspace-create/` | Invokes `ws:create` from a scratch directory and asserts the generated workspace POM references `network.ike.platform:ike-parent` at the released version. |
+| `src/it/workspace-create/` | Invokes `ws:scaffold-init` from a scratch directory and asserts the generated workspace POM references `network.ike.platform:ike-parent` at the released version. |
 
 ### "Would-have-been-caught" list
 
@@ -145,3 +145,12 @@ See the
 
 Apache License 2.0. See [LICENSE](LICENSE) or
 [apache.org/licenses/LICENSE-2.0](https://www.apache.org/licenses/LICENSE-2.0).
+<!-- BEGIN ike-managed: developer-setup -->
+
+## Developer Setup
+
+New to IKE development? The
+[Developer Environment guide](https://ike.network/ike-tooling/ike-build-standards/developer-environment.html)
+covers IDE configuration, JDK 25 setup, and the tooling conventions
+every IKE workspace expects — start there before your first build.
+<!-- END ike-managed: developer-setup -->
