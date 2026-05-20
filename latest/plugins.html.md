@@ -1,6 +1,6 @@
 ---
-date_published: 2026-05-16
-date_modified: 2026-05-16
+date_published: 2026-05-19
+date_modified: 2026-05-19
 canonical_url: https://ike.network/ike-example-its/plugins.html
 ---
 
@@ -8,9 +8,9 @@ canonical_url: https://ike.network/ike-example-its/plugins.html
 
 | GroupId | ArtifactId | Version |
 | --- | --- | --- |
-| network.ike.docs | [ike-doc-maven-plugin](https://github.com/IKE-Network/ike-docs)[1] | 43 |
-| network.ike.platform | [ike-workspace-maven-plugin](https://ike.network/ike-platform/ike-workspace-maven-plugin/)[2] | 70 |
-| network.ike.tooling | [ike-maven-plugin](https://ike.network/ike-tooling/ike-maven-plugin/)[3] | 185 |
+| network.ike.docs | [ike-doc-maven-plugin](https://github.com/IKE-Network/ike-docs)[1] | 47 |
+| network.ike.platform | [ike-workspace-maven-plugin](https://ike.network/ike-platform/ike-workspace-maven-plugin/)[2] | 77 |
+| network.ike.tooling | [ike-maven-plugin](https://ike.network/ike-tooling/ike-maven-plugin/)[3] | 190 |
 | org.apache.maven.plugins | [maven-clean-plugin](https://maven.apache.org/plugins/maven-clean-plugin/)[4] | 3.4.0 |
 | org.apache.maven.plugins | [maven-compiler-plugin](https://maven.apache.org/plugins/maven-compiler-plugin/)[5] | 3.14.0 |
 | org.apache.maven.plugins | [maven-dependency-plugin](https://maven.apache.org/plugins/maven-dependency-plugin/)[6] | 3.9.0 |
@@ -23,11 +23,12 @@ canonical_url: https://ike.network/ike-example-its/plugins.html
 | org.apache.maven.plugins | [maven-surefire-plugin](https://maven.apache.org/surefire/maven-surefire-plugin/)[13] | 3.5.2 |
 | org.cyclonedx | [cyclonedx-maven-plugin](https://github.com/CycloneDX/cyclonedx-maven-plugin)[14] | 2.9.0 |
 | org.jacoco | [jacoco-maven-plugin](https://www.jacoco.org/jacoco/trunk/doc/maven.html)[15] | 0.8.14 |
+| org.jreleaser | [jreleaser-maven-plugin](https://github.com/jreleaser/jreleaser)[16] | 1.24.0 |
 
 # Project Report Plugins
 
 | GroupId | ArtifactId | Version |
 | --- | --- | --- |
-| org.apache.maven.plugins | [maven-javadoc-plugin](https://maven.apache.org/plugins/maven-javadoc-plugin/)[16] | 3.11.2 |
-| org.apache.maven.plugins | [maven-project-info-reports-plugin](https://maven.apache.org/plugins/maven-project-info-reports-plugin/)[17] | 3.9.0 |
+| org.apache.maven.plugins | [maven-javadoc-plugin](https://maven.apache.org/plugins/maven-javadoc-plugin/)[17] | 3.11.2 |
+| org.apache.maven.plugins | [maven-project-info-reports-plugin](https://maven.apache.org/plugins/maven-project-info-reports-plugin/)[18] | 3.9.0 |
 | org.jacoco | [jacoco-maven-plugin](https://www.jacoco.org/jacoco/trunk/doc/maven.html)[15] | 0.8.14 |

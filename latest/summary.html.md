@@ -1,6 +1,6 @@
 ---
-date_published: 2026-05-16
-date_modified: 2026-05-16
+date_published: 2026-05-19
+date_modified: 2026-05-19
 canonical_url: https://ike.network/ike-example-its/summary.html
 ---
 
@@ -27,5 +27,5 @@ canonical_url: https://ike.network/ike-example-its/summary.html
 | --- | --- |
 | GroupId | network.ike.examples |
 | ArtifactId | ike-example-its |
-| Version | 23-SNAPSHOT |
+| Version | 23 |
 | Type | pom |
