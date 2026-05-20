@@ -1,7 +1,7 @@
 ---
 date_published: 2026-05-19
 date_modified: 2026-05-19
-canonical_url: https://ike.network/ike-example-its/summary.html
+canonical_url: https://ike.network/integration-tests-example/summary.html
 ---
 
 # Project Summary
@@ -10,9 +10,9 @@ canonical_url: https://ike.network/ike-example-its/summary.html
 
 | Field | Value |
 | --- | --- |
-| Name | IKE Example Integration Test Harness |
+| Name | IKE Integration Tests Example |
 | Description | End-to-end smoke tests that exercise the IKE Network release cascade as external consumers would. Each IT case clones the intended usage pattern (doc-only project, java + docs, BOM import, ws:create scaffold) in a fresh Maven environment and asserts that the build succeeds and produces the expected artifacts. |
-| Homepage | [https://ike.network/ike-example-its/](https://ike.network/ike-example-its/)[1] |
+| Homepage | [https://ike.network/integration-tests-example/](https://ike.network/integration-tests-example/)[1] |
 
 ## [Project Organization](#project-organization)
 
@@ -26,6 +26,6 @@ canonical_url: https://ike.network/ike-example-its/summary.html
 | Field | Value |
 | --- | --- |
 | GroupId | network.ike.examples |
-| ArtifactId | ike-example-its |
-| Version | 23 |
+| ArtifactId | integration-tests-example |
+| Version | 24-SNAPSHOT |
 | Type | pom |

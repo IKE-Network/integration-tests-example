@@ -1,7 +1,7 @@
 ---
 date_published: 2026-05-19
 date_modified: 2026-05-19
-canonical_url: https://ike.network/ike-example-its/distribution-management.html
+canonical_url: https://ike.network/integration-tests-example/distribution-management.html
 ---
 
 # Overview
@@ -18,4 +18,4 @@ The following is the distribution management information used by this project.
 
 ## [Site - ike-site](#site---ike-site)
 
-[https://ike.network/ike-example-its/](https://ike.network/ike-example-its/)[3]
+[https://ike.network/integration-tests-example/](https://ike.network/integration-tests-example/)[3]

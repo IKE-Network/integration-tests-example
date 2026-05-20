@@ -11,11 +11,14 @@
 
 - [IKE Example Integration Test Suite](https://ike.network/ike-example-its/index.html.md)
 - [Dependencies (SBOM)](https://ike.network/ike-example-its/dependencies.html.md)
+- [Dependencies (SBOM)](https://ike.network/integration-tests-example/dependencies.html.md)
 
 ## Other
 
 - [Licenses (SPDX)](https://ike.network/ike-example-its/licenses.html.md)
 - [Built With](https://ike.network/ike-example-its/built-with.html.md)
+- [Licenses (SPDX)](https://ike.network/integration-tests-example/licenses.html.md)
+- [Built With](https://ike.network/integration-tests-example/built-with.html.md)
 
 ## Reports
 
@@ -26,3 +29,10 @@
 - [Project Plugin Management](https://ike.network/ike-example-its/plugin-management.html.md)
 - [Project Distribution Management](https://ike.network/ike-example-its/distribution-management.html.md)
 - [Project Information](https://ike.network/ike-example-its/project-info.html.md)
+- [Project Summary](https://ike.network/integration-tests-example/summary.html.md)
+- [Maven Coordinates](https://ike.network/integration-tests-example/dependency-info.html.md)
+- [Project Dependency Management](https://ike.network/integration-tests-example/dependency-management.html.md)
+- [Project Plugins](https://ike.network/integration-tests-example/plugins.html.md)
+- [Project Plugin Management](https://ike.network/integration-tests-example/plugin-management.html.md)
+- [Project Distribution Management](https://ike.network/integration-tests-example/distribution-management.html.md)
+- [Project Information](https://ike.network/integration-tests-example/project-info.html.md)

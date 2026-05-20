@@ -1,7 +1,7 @@
 ---
 date_published: 2026-05-19
 date_modified: 2026-05-19
-canonical_url: https://ike.network/ike-example-its/plugins.html
+canonical_url: https://ike.network/integration-tests-example/plugins.html
 ---
 
 # Project Build Plugins
