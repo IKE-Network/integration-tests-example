@@ -18,7 +18,7 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://maven.apache.org/SITE/2.0.0
       https://maven.apache.org/xsd/site-2.0.0.xsd"
-      name="ike-example-its">
+      name="integration-tests-example">
 
     <skin>
         <groupId>org.sentrysoftware.maven</groupId>
@@ -36,23 +36,23 @@
                    release cascade, IKE Network</keywords>
     </custom>
 
-    <bannerLeft name="ike-example-its" href="https://ike.network/">
+    <bannerLeft name="integration-tests-example" href="https://ike.network/">
         <image src="images/ike-logo.svg" alt="IKE"/>
     </bannerLeft>
 
     <bannerRight name="GitHub &lt;i class='fa-brands fa-github'&gt;&lt;/i&gt;"
-        href="https://github.com/IKE-Network/ike-example-its"/>
+        href="https://github.com/IKE-Network/integration-tests-example"/>
 
     <publishDate format="yyyy-MM-dd"/>
 
     <body>
         <breadcrumbs>
             <item name="IKE" href="https://ike.network/"/>
-            <item name="ike-example-its" href="index.html"/>
+            <item name="integration-tests-example" href="index.html"/>
         </breadcrumbs>
 
         <links>
-            <item name="GitHub" href="https://github.com/IKE-Network/ike-example-its"/>
+            <item name="GitHub" href="https://github.com/IKE-Network/integration-tests-example"/>
             <item name="Issues" href="https://github.com/IKE-Network/ike-issues"/>
         </links>
 
@@ -62,12 +62,12 @@
         </menu>
 
         <menu name="Related Sites">
-            <item name="ike-example-ws (workspace)"
-                  href="https://ike.network/ike-example-ws/"/>
+            <item name="workspace-example (workspace)"
+                  href="https://ike.network/workspace-example/"/>
             <item name="doc-example (sibling)"
                   href="https://ike.network/doc-example/"/>
-            <item name="example-project (sibling)"
-                  href="https://ike.network/example-project/"/>
+            <item name="project-example (sibling)"
+                  href="https://ike.network/project-example/"/>
             <item name="IKE Platform"
                   href="https://ike.network/ike-platform/"/>
         </menu>

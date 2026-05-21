@@ -52,4 +52,4 @@ mvn verify -Dinvoker.test=NAME   # one case
 - `README.adoc` for the planned IT inventory and the
   "would-have-been-caught" list.
 - `IKE-Network/ike-issues#343` — the issue that motivated splitting this
-  out of `ike-example-ws`.
+  out of `workspace-example` (formerly `ike-example-ws`).
