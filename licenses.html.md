@@ -6,7 +6,7 @@ canonical_url: https://ike.network/integration-tests-example/licenses.html
 
 # Licenses (SPDX)
 
-Licenses for declared dependencies of `integration-tests-example` 24, grouped by SPDX expression. Rendered from `[bom.json](bom.json)[1]` (CycloneDX) at `pre-site` phase by `ike:render-spdx-licenses` (ike-issues#335).
+Licenses for declared dependencies of `integration-tests-example` 25-SNAPSHOT, grouped by SPDX expression. Rendered from `[bom.json](bom.json)[1]` (CycloneDX) at `pre-site` phase by `ike:render-spdx-licenses` (ike-issues#335).
 
 ## [#summary](#summary)Summary
 

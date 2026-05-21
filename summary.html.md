@@ -27,5 +27,5 @@ canonical_url: https://ike.network/integration-tests-example/summary.html
 | --- | --- |
 | GroupId | network.ike.examples |
 | ArtifactId | integration-tests-example |
-| Version | 24 |
+| Version | 25-SNAPSHOT |
 | Type | pom |

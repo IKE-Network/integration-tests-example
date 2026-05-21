@@ -4,36 +4,38 @@ date_modified: 2026-05-20
 canonical_url: https://ike.network/integration-tests-example/index.html
 ---
 
-# IKE Example Integration Test Suite
+# integration-tests-example
 
-The `ike-example-its` reactor is the **executable specification** for cross-cascade behavior in the IKE Network release stack. It runs the five-repo (or six-repo, when included in `ike-example-ws`) build chain the way an external consumer would — pulling artifacts from Nexus, scaffolding a fresh project layout, and asserting that the documented pipeline actually works end-to-end.
+The `integration-tests-example` reactor is the **executable specification** for cross-cascade behavior in the IKE Network release stack. It runs the foundation + example build chain the way an external consumer would — pulling artifacts from Nexus, scaffolding a fresh project layout, and asserting that the documented pipeline actually works end-to-end.
+
+Formerly named `ike-example-its` (with subproject key `its` in the workspace manifest); renamed under [ike-issues#467](https://github.com/IKE-Network/ike-issues/issues/467)[1] on 2026-05-20.
 
 The harness can be run two ways:
 
 ```
 # Standalone — from its own checkout:
-git clone https://github.com/IKE-Network/ike-example-its.git
-cd ike-example-its
+git clone https://github.com/IKE-Network/integration-tests-example.git
+cd integration-tests-example
 mvn verify
 
-# Pluggable — as an optional subproject of ike-example-ws:
-cd ike-example-ws
-mvn ws:scaffold-init         # clones doc-example, example-project, its
-mvn verify -pl its           # run the IT suite as a workspace module
+# Pluggable — as an optional subproject of workspace-example:
+cd workspace-example
+mvn ws:scaffold-init                                # clones all three example subprojects
+mvn verify -pl integration-tests-example            # run the IT suite as a workspace module
 ```
 
-When cloned into `ike-example-ws/its/`, the workspace’s file-activated profile picks it up as a reactor module. When absent — for a leaner workspace build, or because a workflow doesn’t need IT runs — the workspace builds without it. (See [#343](https://github.com/IKE-Network/ike-issues/issues/343)[1] for the rationale behind splitting this harness out of the workspace.)
+When cloned into `workspace-example/integration-tests-example/`, the workspace’s file-activated profile picks it up as a reactor module. When absent — for a leaner workspace build, or because a workflow doesn’t need IT runs — the workspace builds without it. (See [#343](https://github.com/IKE-Network/ike-issues/issues/343)[2] for the rationale behind splitting this harness out of the workspace.)
 
 ## [#why-a-dedicated-it-suite](#why-a-dedicated-it-suite)Why a dedicated IT suite?
 
-The three foundation reactors (ike-tooling, ike-docs, ike-platform) plus the workspace’s two consumers (doc-example, example-project) each have their own unit and integration tests inside their own modules. Those catch regressions inside a single reactor.
+The foundation reactors (ike-tooling, ike-docs, ike-platform) plus the workspace’s consumer-side example projects (doc-example, project-example) each have their own unit and integration tests inside their own modules. Those catch regressions inside a single reactor.
 
 What they don’t catch:
 
 - **Cross-reactor coordination bugs.** A change in `ike-tooling` that breaks `ike-doc-maven-plugin` (consumed by `ike-docs`) only surfaces when an actual consumer cascades through Nexus.
 - **Newly-published artifact resolution.** A consumer building against `ike-platform v30` succeeds locally but breaks for a fresh clone if `ike-bom` v30 was never deployed correctly.
-- **Scaffold + extension delivery.** The consumer-side `.mvn/extensions.xml` for `wagon-ssh-external` ([#338](https://github.com/IKE-Network/ike-issues/issues/338)[2]) reaches external projects via the `ike:scaffold-publish` flow — that delivery only exercises in a fresh project tree.
-- **Built-With supplement classifier delivery.** The `ike-build-standards:built-with:zip` classifier ([#340](https://github.com/IKE-Network/ike-issues/issues/340)[3]) is unpacked at `initialize` phase by `maven-dependency-plugin` — works only when the dep declaration in `ike-parent` reaches the consumer’s effective POM.
+- **Scaffold + extension delivery.** The consumer-side `.mvn/extensions.xml` for `wagon-ssh-external` ([#338](https://github.com/IKE-Network/ike-issues/issues/338)[3]) reaches external projects via the `ike:scaffold-publish` flow — that delivery only exercises in a fresh project tree.
+- **Built-With supplement classifier delivery.** The `ike-build-standards:built-with:zip` classifier ([#340](https://github.com/IKE-Network/ike-issues/issues/340)[4]) is unpacked at `initialize` phase by `maven-dependency-plugin` — works only when the dep declaration in `ike-parent` reaches the consumer’s effective POM.
 
 Each of those is testable inside a fresh `maven-invoker-plugin` sandbox, and each represents a real regression the IKE Network has hit at least once during the v144→v150 cascade work.
 
@@ -70,9 +72,10 @@ mvn verify -U
 mvn invoker:run -Dinvoker.test=doc-only
 
 # Or as a workspace module (requires the harness cloned into
-# ike-example-ws/its/ — `mvn ws:scaffold-init` does that automatically):
-cd ../ike-example-ws
-mvn verify -pl its
+# workspace-example/integration-tests-example/ — `mvn ws:scaffold-init`
+# does that automatically):
+cd ../workspace-example
+mvn verify -pl integration-tests-example
 ```
 
 The reactor’s `pom.xml` declares `maven-invoker-plugin` 3.9.0 configured to clone each `src/it/<case>/` into `target/it/<case>/` and run `mvn verify` there in a fresh Maven environment.
@@ -83,17 +86,17 @@ The bar for new cases is low: add one whenever you fix a bug that "should have b
 
 - The empty-staging gh-pages publish bug (#334) — would have been caught by an IT that asserts a single-module project’s `target/staging/` is correctly handled by the publish path.
 - The classifier filename mismatch in the v148 supplement delivery — would have been caught by an `src/it/built-with-classifier/` case.
-- The version-nested staging recursion (#337) — would have been caught by a `release-cascade` IT exercising `24` substitution in `site.deploy.url`.
+- The version-nested staging recursion (#337) — would have been caught by a `release-cascade` IT exercising `25-SNAPSHOT` substitution in `site.deploy.url`.
 - The parent-artifactId staging nesting (#342, surfaced during the v150 workspace release) — would have been caught by a `release-cascade` IT that verifies the published gh-pages tree has its content at the expected URL, not at `<parentArtifactId>/<artifactId>/`.
 
 Each "we hit this in the cascade and had to release another fix" moment is exactly the kind of thing this suite exists to catch preemptively. File a bug + add a regression IT, in that order.
 
 ## [#not-published-to-maven-central](#not-published-to-maven-central)Not published to Maven Central
 
-`ike-example-its` is an executable test harness, not a library. It is deliberately **not** published to Maven Central — nothing depends on it; it depends on, and exercises, everything else. The IKE foundation (`ike-base-parent`, `ike-tooling`, `ike-docs`, `ike-platform`) is the part published to Central; see [the IKE Network landing page](https://ike.network/)[4] for the foundation/examples split.
+`integration-tests-example` is an executable test harness, not a library. It is deliberately **not** published to Maven Central — nothing depends on it; it depends on, and exercises, everything else. The IKE foundation (`ike-base-parent`, `ike-tooling`, `ike-docs`, `ike-platform`) is the part published to Central; see [the IKE Network landing page](https://ike.network/)[5] for the foundation/examples split.
 
 ## [#see-also](#see-also)See also
 
-- [ike-example-ws](https://ike.network/ike-example-ws/)[5] — the workspace this harness slots into as an optional reactor module.
-- [workspace.yaml — Annotated Tour](https://ike.network/ike-example-ws/workspace-yaml.html)[6] — the manifest format that the IT suite assumes the workspace exercises.
-- [maven-invoker-plugin](https://maven.apache.org/plugins/maven-invoker-plugin/)[7] — upstream documentation for the harness.
+- [workspace-example](https://ike.network/workspace-example/)[6] — the workspace this harness slots into as an optional reactor module.
+- [workspace.yaml — Annotated Tour](https://ike.network/workspace-example/workspace-yaml.html)[7] — the manifest format that the IT suite assumes the workspace exercises.
+- [maven-invoker-plugin](https://maven.apache.org/plugins/maven-invoker-plugin/)[8] — upstream documentation for the harness.

@@ -1,4 +1,4 @@
-# ike-example-its
+# integration-tests-example
 
 > End-to-end smoke tests that exercise the IKE Network release
 > cascade as external consumers would. Each IT case clones the
@@ -9,7 +9,7 @@
 
 ## Documentation
 
-- [IKE Example Integration Test Suite](https://ike.network/integration-tests-example/index.html.md)
+- [integration-tests-example](https://ike.network/integration-tests-example/index.html.md)
 - [Dependencies (SBOM)](https://ike.network/integration-tests-example/dependencies.html.md)
 
 ## Other

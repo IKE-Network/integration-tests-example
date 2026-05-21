@@ -6,7 +6,7 @@ canonical_url: https://ike.network/integration-tests-example/built-with.html
 
 # Built With
 
-Open-source software that `integration-tests-example` 24 depends on, links against, ships within, or invokes at runtime.
+Open-source software that `integration-tests-example` 25-SNAPSHOT depends on, links against, ships within, or invokes at runtime.
 
 Three layers of attribution ship with each release:
 
