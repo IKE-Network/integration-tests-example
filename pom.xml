@@ -34,7 +34,7 @@
 
     <groupId>network.ike.examples</groupId>
     <artifactId>integration-tests-example</artifactId>
-    <version>24</version>
+    <version>25-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>IKE Integration Tests Example</name>
