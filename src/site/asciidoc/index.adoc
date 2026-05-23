@@ -25,13 +25,13 @@ git clone https://github.com/IKE-Network/integration-tests-example.git
 cd integration-tests-example
 mvn verify
 
-# Pluggable — as an optional subproject of workspace-example:
-cd workspace-example
+# Pluggable — as an optional subproject of workspace-reactor-example:
+cd workspace-reactor-example
 mvn ws:scaffold-init                                # clones all three example subprojects
 mvn verify -pl integration-tests-example            # run the IT suite as a workspace module
 ----
 
-When cloned into `workspace-example/integration-tests-example/`, the
+When cloned into `workspace-reactor-example/integration-tests-example/`, the
 workspace's file-activated profile picks it up as a reactor module.
 When absent — for a leaner workspace build, or because a workflow
 doesn't need IT runs — the workspace builds without it. (See
@@ -165,9 +165,9 @@ mvn verify -U
 mvn invoker:run -Dinvoker.test=doc-only
 
 # Or as a workspace module (requires the harness cloned into
-# workspace-example/integration-tests-example/ — `mvn ws:scaffold-init`
+# workspace-reactor-example/integration-tests-example/ — `mvn ws:scaffold-init`
 # does that automatically):
-cd ../workspace-example
+cd ../workspace-reactor-example
 mvn verify -pl integration-tests-example
 ----
 
@@ -213,9 +213,9 @@ foundation/examples split.
 
 == See also
 
-* https://ike.network/workspace-example/[`workspace-example`] — the
+* https://ike.network/workspace-reactor-example/[`workspace-reactor-example`] — the
   workspace this harness slots into as an optional reactor module.
-* https://ike.network/workspace-example/workspace-yaml.html[workspace.yaml — Annotated Tour] —
+* https://ike.network/workspace-reactor-example/workspace-yaml.html[workspace.yaml — Annotated Tour] —
   the manifest format that the IT suite assumes the workspace
   exercises.
 * https://maven.apache.org/plugins/maven-invoker-plugin/[`maven-invoker-plugin`] —

@@ -62,8 +62,8 @@
         </menu>
 
         <menu name="Related Sites">
-            <item name="workspace-example (workspace)"
-                  href="https://ike.network/workspace-example/"/>
+            <item name="workspace-reactor-example (workspace)"
+                  href="https://ike.network/workspace-reactor-example/"/>
             <item name="doc-example (sibling)"
                   href="https://ike.network/doc-example/"/>
             <item name="project-example (sibling)"

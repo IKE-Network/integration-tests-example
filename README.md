@@ -21,12 +21,13 @@ from Nexus (or from the local repository if already installed).
 
 ## Layout
 
-This is its own repository (split from `workspace-example`
-in [`IKE-Network/ike-issues#343`](https://github.com/IKE-Network/ike-issues/issues/343)
+This is its own repository (split from what was then
+`ike-example-ws` / now `workspace-reactor-example`, via
+[`IKE-Network/ike-issues#343`](https://github.com/IKE-Network/ike-issues/issues/343))
 so the IT harness can evolve on its own cadence and so a broken IT
-POM never blocks the workspace release cascade).
+POM never blocks the workspace release cascade.
 
-It plugs into `workspace-example` as an **optional** subproject:
+It plugs into `workspace-reactor-example` as an **optional** subproject:
 
 ```bash
 # Standalone:
@@ -34,16 +35,16 @@ git clone https://github.com/IKE-Network/integration-tests-example.git
 cd integration-tests-example
 mvn verify
 
-# As a workspace-example subproject (cloned into
+# As a workspace-reactor-example subproject (cloned into
 # ./integration-tests-example/, where the workspace's file-activated
 # profile picks it up):
-cd workspace-example
+cd workspace-reactor-example
 mvn ws:scaffold-init                               # or:
 git clone https://github.com/IKE-Network/integration-tests-example.git
 mvn verify -pl integration-tests-example
 ```
 
-When the subproject directory is present inside `workspace-example`,
+When the subproject directory is present inside `workspace-reactor-example`,
 the workspace reactor walks it during full builds. When it's absent,
 the workspace reactor skips it cleanly. The directory name matches
 the artifact, the repo, and the workspace.yaml subproject key —
@@ -154,7 +155,7 @@ See the
 ## Links
 
 - **Documentation:** [`https://ike.network/integration-tests-example/`](https://ike.network/integration-tests-example/)
-- **Workspace:** [`IKE-Network/workspace-example`](https://ike.network/workspace-example/) — pluggable harness for the workspace's release cascade
+- **Workspace:** [`IKE-Network/workspace-reactor-example`](https://ike.network/workspace-reactor-example/) — pluggable harness for the workspace's release cascade
 - **Foundation sites:**
   [`ike-tooling`](https://ike.network/ike-tooling/) ·
   [`ike-docs`](https://ike.network/ike-docs/) ·
