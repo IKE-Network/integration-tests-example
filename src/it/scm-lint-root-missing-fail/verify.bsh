@@ -1,0 +1,20 @@
+import java.io.File;
+import java.nio.file.Files;
+
+File log = new File(basedir, "build.log");
+if (!log.exists()) {
+    throw new RuntimeException("expected build.log at " + log);
+}
+String content = new String(Files.readAllBytes(log.toPath()));
+if (!content.contains("MISSING-SCM")) {
+    throw new RuntimeException(
+        "The MISSING_SCM lint did not fire on a reactor root " +
+        "without <scm>. This is the failure mode the lint exists " +
+        "to catch.");
+}
+if (!content.contains("IKE-Network/ike-issues#496")) {
+    throw new RuntimeException(
+        "The lint error message should cite issue #496 so " +
+        "developers can look up the convention.");
+}
+return true;

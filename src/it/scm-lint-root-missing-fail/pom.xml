@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  IT — Reactor root sits at the .git boundary but declares NO <scm>.
+
+  This is the case the MISSING_SCM lint exists to catch: without
+  the root's local <scm>, the release cascade cannot derive the
+  repository's identity from this checkout. The build must fail
+  with a MISSING-SCM violation. See IKE-Network/ike-issues#496.
+-->
+<project xmlns="http://maven.apache.org/POM/4.1.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.1.0
+                             http://maven.apache.org/xsd/maven-4.1.0.xsd"
+         root="true">
+    <modelVersion>4.1.0</modelVersion>
+
+    <groupId>network.ike.examples.it</groupId>
+    <artifactId>scm-lint-root-missing-fail</artifactId>
+    <version>1</version>
+    <packaging>pom</packaging>
+
+    <!-- No <scm> block: this is the failure mode under test. -->
+</project>

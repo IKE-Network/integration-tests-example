@@ -1,0 +1,18 @@
+// Create an empty .git/ directory at the reactor root so the
+// ike-version-management-extension's gitRoot() walk identifies
+// this POM as a repository root. Files.exists(".git") matches
+// either a .git directory or a .git worktree pointer file, so an
+// empty directory suffices — nothing inside .git is read.
+//
+// BeanShell is interpreted (not compiled through ASM), so it
+// works under the project's Java 25 runtime where the bundled
+// Groovy 3.x in maven-invoker-plugin 3.9.0 cannot read JDK 25
+// class files (version 69).
+
+import java.io.File;
+
+File git = new File(basedir, ".git");
+if (!git.mkdir()) {
+    throw new RuntimeException("failed to create .git/ at " + git);
+}
+return true;

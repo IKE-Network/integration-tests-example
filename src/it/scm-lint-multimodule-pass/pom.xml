@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  IT — Reactor root declares <scm>; subprojects inherit.
+
+  Exercises the MISSING_SCM lint's git-boundary detection from
+  IKE-Network/ike-issues#496. setup.groovy creates an empty .git/
+  directory in this project's root so the lint's gitRoot() walk
+  identifies this POM as the repository root. The subprojects below
+  sit inside the same .git boundary, so the lint skips them — they
+  inherit <scm> from this root. Build must succeed.
+-->
+<project xmlns="http://maven.apache.org/POM/4.1.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.1.0
+                             http://maven.apache.org/xsd/maven-4.1.0.xsd"
+         root="true">
+    <modelVersion>4.1.0</modelVersion>
+
+    <groupId>network.ike.examples.it</groupId>
+    <artifactId>scm-lint-multimodule-pass</artifactId>
+    <version>1</version>
+    <packaging>pom</packaging>
+
+    <scm>
+        <connection>scm:git:https://example.invalid/scm-lint-multimodule-pass.git</connection>
+        <url>https://example.invalid/scm-lint-multimodule-pass</url>
+    </scm>
+
+    <subprojects>
+        <subproject>subproject-a</subproject>
+        <subproject>subproject-b</subproject>
+    </subprojects>
+</project>

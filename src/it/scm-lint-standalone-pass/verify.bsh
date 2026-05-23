@@ -1,0 +1,15 @@
+import java.io.File;
+import java.nio.file.Files;
+
+File log = new File(basedir, "build.log");
+if (!log.exists()) {
+    throw new RuntimeException("expected build.log at " + log);
+}
+String content = new String(Files.readAllBytes(log.toPath()));
+if (content.contains("MISSING-SCM")) {
+    throw new RuntimeException(
+        "The MISSING_SCM lint fired on a standalone project that " +
+        "does declare <scm> locally. The lint should pass this " +
+        "shape unchanged.");
+}
+return true;

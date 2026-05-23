@@ -68,10 +68,25 @@ one name everywhere (IKE-Network/ike-issues#467).
 
 ## Test inventory
 
-The harness is currently **structural-only**: `maven-invoker-plugin`
-is configured in `pom.xml` and `src/it/settings.xml` is in place,
-but no IT cases have been authored yet. The tables below are
-authored backlog and "would-have-been-caught" lists.
+### Authored (implemented)
+
+| IT | Purpose |
+|---|---|
+| `src/it/scm-lint-multimodule-pass/` | Multi-module reactor whose root declares `<scm>` and whose subprojects inherit. Verifies the `ike-version-management-extension` MISSING_SCM lint correctly walks the git boundary and skips subproject POMs ([`IKE-Network/ike-issues#496`](https://github.com/IKE-Network/ike-issues/issues/496)). |
+| `src/it/scm-lint-root-missing-fail/` | Reactor root sitting at the `.git` boundary with no `<scm>` block. Asserts the lint fires with a `MISSING-SCM` violation that cites issue #496. |
+| `src/it/scm-lint-standalone-pass/` | Single-module project at the `.git` repo root with a local `<scm>`. Sanity check that the lint still permits the original well-formed shape. |
+
+These ITs require `ike-version-management-extension` at version
+`2-SNAPSHOT` (or later, once released) to be installed in the local
+Maven repository — register it via the IT's `.mvn/extensions.xml`.
+Run `mvn install` in
+[`IKE-Network/ike-version-management-extension`](https://github.com/IKE-Network/ike-version-management-extension)
+before invoking `mvn verify` here. Each IT's `setup.bsh` creates an
+empty `.git/` directory in the cloned IT project so the extension's
+git-boundary walk treats that POM as a repository root; BeanShell
+is used rather than Groovy because the bundled Groovy 3.x in
+`maven-invoker-plugin` 3.9.0 cannot decode the Java 25 class files
+that the rest of the IKE stack compiles to.
 
 ### Authored backlog (planned)
 

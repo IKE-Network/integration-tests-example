@@ -1,0 +1,10 @@
+// Mark this directory as a git repo root for the extension's
+// gitRoot() walk. See scm-lint-multimodule-pass/setup.bsh.
+
+import java.io.File;
+
+File git = new File(basedir, ".git");
+if (!git.mkdir()) {
+    throw new RuntimeException("failed to create .git/ at " + git);
+}
+return true;

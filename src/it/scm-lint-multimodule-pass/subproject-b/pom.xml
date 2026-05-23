@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Second subproject inside the reactor's git boundary. NO <scm> —
+  inherits. Exercises that the lint correctly skips multiple
+  subprojects under one repo root.
+-->
+<project xmlns="http://maven.apache.org/POM/4.1.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.1.0
+                             http://maven.apache.org/xsd/maven-4.1.0.xsd">
+    <modelVersion>4.1.0</modelVersion>
+
+    <parent>
+        <groupId>network.ike.examples.it</groupId>
+        <artifactId>scm-lint-multimodule-pass</artifactId>
+        <version>1</version>
+    </parent>
+
+    <artifactId>subproject-b</artifactId>
+    <packaging>pom</packaging>
+</project>
