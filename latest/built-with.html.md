@@ -1,12 +1,12 @@
 ---
-date_published: 2026-05-20
-date_modified: 2026-05-20
+date_published: 2026-05-26
+date_modified: 2026-05-26
 canonical_url: https://ike.network/integration-tests-example/built-with.html
 ---
 
 # Built With
 
-Open-source software that `integration-tests-example` 25-SNAPSHOT depends on, links against, ships within, or invokes at runtime.
+Open-source software that `integration-tests-example` 25 depends on, links against, ships within, or invokes at runtime.
 
 Three layers of attribution ship with each release:
 
@@ -87,8 +87,8 @@ Direct dependencies of this module, grouped by SPDX expression. Generated from `
 
 | SPDX Expression | Components |
 | --- | --- |
-| `Apache-2.0` | 5 |
-| **Total** | **5** |
+| `Apache-2.0` | 6 |
+| **Total** | **6** |
 
 For full per-component detail (group, artifact, version, hashes, transitive deps), see [bom.json](bom.json)[1] or [licenses.html](licenses.html)[2].
 

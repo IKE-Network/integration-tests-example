@@ -1,6 +1,6 @@
 ---
-date_published: 2026-05-20
-date_modified: 2026-05-20
+date_published: 2026-05-26
+date_modified: 2026-05-26
 canonical_url: https://ike.network/integration-tests-example/index.html
 ---
 
@@ -18,13 +18,13 @@ git clone https://github.com/IKE-Network/integration-tests-example.git
 cd integration-tests-example
 mvn verify
 
-# Pluggable — as an optional subproject of workspace-example:
-cd workspace-example
+# Pluggable — as an optional subproject of workspace-reactor-example:
+cd workspace-reactor-example
 mvn ws:scaffold-init                                # clones all three example subprojects
 mvn verify -pl integration-tests-example            # run the IT suite as a workspace module
 ```
 
-When cloned into `workspace-example/integration-tests-example/`, the workspace’s file-activated profile picks it up as a reactor module. When absent — for a leaner workspace build, or because a workflow doesn’t need IT runs — the workspace builds without it. (See [#343](https://github.com/IKE-Network/ike-issues/issues/343)[2] for the rationale behind splitting this harness out of the workspace.)
+When cloned into `workspace-reactor-example/integration-tests-example/`, the workspace’s file-activated profile picks it up as a reactor module. When absent — for a leaner workspace build, or because a workflow doesn’t need IT runs — the workspace builds without it. (See [#343](https://github.com/IKE-Network/ike-issues/issues/343)[2] for the rationale behind splitting this harness out of the workspace.)
 
 ## [#why-a-dedicated-it-suite](#why-a-dedicated-it-suite)Why a dedicated IT suite?
 
@@ -72,9 +72,9 @@ mvn verify -U
 mvn invoker:run -Dinvoker.test=doc-only
 
 # Or as a workspace module (requires the harness cloned into
-# workspace-example/integration-tests-example/ — `mvn ws:scaffold-init`
+# workspace-reactor-example/integration-tests-example/ — `mvn ws:scaffold-init`
 # does that automatically):
-cd ../workspace-example
+cd ../workspace-reactor-example
 mvn verify -pl integration-tests-example
 ```
 
@@ -86,7 +86,7 @@ The bar for new cases is low: add one whenever you fix a bug that "should have b
 
 - The empty-staging gh-pages publish bug (#334) — would have been caught by an IT that asserts a single-module project’s `target/staging/` is correctly handled by the publish path.
 - The classifier filename mismatch in the v148 supplement delivery — would have been caught by an `src/it/built-with-classifier/` case.
-- The version-nested staging recursion (#337) — would have been caught by a `release-cascade` IT exercising `25-SNAPSHOT` substitution in `site.deploy.url`.
+- The version-nested staging recursion (#337) — would have been caught by a `release-cascade` IT exercising `25` substitution in `site.deploy.url`.
 - The parent-artifactId staging nesting (#342, surfaced during the v150 workspace release) — would have been caught by a `release-cascade` IT that verifies the published gh-pages tree has its content at the expected URL, not at `<parentArtifactId>/<artifactId>/`.
 
 Each "we hit this in the cascade and had to release another fix" moment is exactly the kind of thing this suite exists to catch preemptively. File a bug + add a regression IT, in that order.
@@ -97,6 +97,6 @@ Each "we hit this in the cascade and had to release another fix" moment is exact
 
 ## [#see-also](#see-also)See also
 
-- [workspace-example](https://ike.network/workspace-example/)[6] — the workspace this harness slots into as an optional reactor module.
-- [workspace.yaml — Annotated Tour](https://ike.network/workspace-example/workspace-yaml.html)[7] — the manifest format that the IT suite assumes the workspace exercises.
+- [workspace-reactor-example](https://ike.network/workspace-reactor-example/)[6] — the workspace this harness slots into as an optional reactor module.
+- [workspace.yaml — Annotated Tour](https://ike.network/workspace-reactor-example/workspace-yaml.html)[7] — the manifest format that the IT suite assumes the workspace exercises.
 - [maven-invoker-plugin](https://maven.apache.org/plugins/maven-invoker-plugin/)[8] — upstream documentation for the harness.
