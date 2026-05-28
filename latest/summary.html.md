@@ -1,6 +1,6 @@
 ---
-date_published: 2026-05-26
-date_modified: 2026-05-26
+date_published: 2026-05-27
+date_modified: 2026-05-27
 canonical_url: https://ike.network/integration-tests-example/summary.html
 ---
 
@@ -27,5 +27,5 @@ canonical_url: https://ike.network/integration-tests-example/summary.html
 | --- | --- |
 | GroupId | network.ike.examples |
 | ArtifactId | integration-tests-example |
-| Version | 25 |
+| Version | 26-SNAPSHOT |
 | Type | pom |

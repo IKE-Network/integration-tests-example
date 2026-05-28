@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bom serialNumber="urn:uuid:ee4d097a-3125-3e71-9660-f4e00d6fd141" version="1" xmlns="http://cyclonedx.org/schema/bom/1.6">
+<bom serialNumber="urn:uuid:d28cd7fa-3ec5-3053-b61c-118a24c64f49" version="1" xmlns="http://cyclonedx.org/schema/bom/1.6">
   <metadata>
     <lifecycles>
       <lifecycle>
@@ -27,11 +27,11 @@
         </component>
       </components>
     </tools>
-    <component type="library" bom-ref="pkg:maven/network.ike.examples/integration-tests-example@25?type=pom">
+    <component type="library" bom-ref="pkg:maven/network.ike.examples/integration-tests-example@26-SNAPSHOT?type=pom">
       <publisher>IKE Network</publisher>
       <group>network.ike.examples</group>
       <name>integration-tests-example</name>
-      <version>25</version>
+      <version>26-SNAPSHOT</version>
       <description>End-to-end smoke tests that exercise the IKE Network release
         cascade as external consumers would. Each IT case clones the
         intended usage pattern (doc-only project, java + docs, BOM
@@ -43,7 +43,7 @@
           <id>Apache-2.0</id>
         </license>
       </licenses>
-      <purl>pkg:maven/network.ike.examples/integration-tests-example@25?type=pom</purl>
+      <purl>pkg:maven/network.ike.examples/integration-tests-example@26-SNAPSHOT?type=pom</purl>
       <externalReferences>
         <reference type="website">
           <url>https://ike.network/integration-tests-example/</url>
@@ -288,7 +288,7 @@
     </component>
   </components>
   <dependencies>
-    <dependency ref="pkg:maven/network.ike.examples/integration-tests-example@25?type=pom">
+    <dependency ref="pkg:maven/network.ike.examples/integration-tests-example@26-SNAPSHOT?type=pom">
       <dependency ref="pkg:maven/network.ike.tooling/ike-build-standards@217?classifier=claude&amp;type=zip"/>
       <dependency ref="pkg:maven/network.ike.tooling/ike-build-standards@217?classifier=config&amp;type=zip"/>
       <dependency ref="pkg:maven/network.ike.tooling/ike-build-standards@217?classifier=scaffold&amp;type=zip"/>

@@ -1,6 +1,6 @@
 ---
-date_published: 2026-05-26
-date_modified: 2026-05-26
+date_published: 2026-05-27
+date_modified: 2026-05-27
 canonical_url: https://ike.network/integration-tests-example/dependency-info.html
 ---
 
@@ -12,7 +12,7 @@ canonical_url: https://ike.network/integration-tests-example/dependency-info.htm
 <dependency>
   <groupId>network.ike.examples</groupId>
   <artifactId>integration-tests-example</artifactId>
-  <version>25</version>
+  <version>26-SNAPSHOT</version>
   <type>pom</type>
 </dependency>
 ```
@@ -20,7 +20,7 @@ canonical_url: https://ike.network/integration-tests-example/dependency-info.htm
 ## [Apache Ivy](#apache-ivy)
 
 ```
-<dependency org="network.ike.examples" name="integration-tests-example" rev="25">
+<dependency org="network.ike.examples" name="integration-tests-example" rev="26-SNAPSHOT">
   <artifact name="integration-tests-example" type="pom" />
 </dependency>
 ```
@@ -29,24 +29,24 @@ canonical_url: https://ike.network/integration-tests-example/dependency-info.htm
 
 ```
 @Grapes(
-@Grab(group='network.ike.examples', module='integration-tests-example', version='25')
+@Grab(group='network.ike.examples', module='integration-tests-example', version='26-SNAPSHOT')
 )
 ```
 
 ## [Gradle/Grails](#gradle-grails)
 
 ```
-implementation 'network.ike.examples:integration-tests-example:25'
+implementation 'network.ike.examples:integration-tests-example:26-SNAPSHOT'
 ```
 
 ## [Scala SBT](#scala-sbt)
 
 ```
-libraryDependencies += "network.ike.examples" % "integration-tests-example" % "25"
+libraryDependencies += "network.ike.examples" % "integration-tests-example" % "26-SNAPSHOT"
 ```
 
 ## [Leiningen](#leiningen)
 
 ```
-[network.ike.examples/integration-tests-example "25"]
+[network.ike.examples/integration-tests-example "26-SNAPSHOT"]
 ```
