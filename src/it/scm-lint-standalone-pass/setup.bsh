@@ -1,10 +1,22 @@
-// Mark this directory as a git repo root for the extension's
-// gitRoot() walk. See scm-lint-multimodule-pass/setup.bsh.
+// Mark this directory as a git repository root for the extension's
+// gitRoot() walk: a .git directory carrying a HEAD file, which is what
+// the extension requires since IKE-Network/ike-issues#1094 — an empty
+// .git directory is treated as a husk, not a repository.
+//
+// BeanShell is interpreted (not compiled through ASM), so it works
+// under the project's Java 25 runtime where the bundled Groovy 3.x in
+// maven-invoker-plugin 3.9.0 cannot read JDK 25 class files.
 
 import java.io.File;
+import java.io.FileWriter;
 
 File git = new File(basedir, ".git");
 if (!git.mkdir()) {
     throw new RuntimeException("failed to create .git/ at " + git);
 }
+// FileWriter rather than Files.write: BeanShell cannot bind the
+// varargs OpenOption parameter.
+FileWriter head = new FileWriter(new File(git, "HEAD"));
+head.write("ref: refs/heads/main\n");
+head.close();
 return true;

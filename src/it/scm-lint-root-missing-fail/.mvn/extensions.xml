@@ -3,6 +3,10 @@
     <extension>
         <groupId>network.ike.tooling</groupId>
         <artifactId>ike-version-management-extension</artifactId>
-        <version>2-SNAPSHOT</version>
+        <!-- Released version; tracks the pin in ike-platform's pom.xml
+             (network.ike.tooling__GA__ike-version-management-extension__VERSION).
+             maven-invoker-plugin does not filter this file, so the
+             literal is maintained by hand. -->
+        <version>11</version>
     </extension>
 </extensions>
